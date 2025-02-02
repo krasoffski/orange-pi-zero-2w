@@ -1,0 +1,18 @@
+[Unit]
+Description=RTLSDR WSPR reportin service
+BindsTo=dev-rtlsdrv4.device
+After=network-online.target
+After=dev-rtlsdrv4.device
+Requires=network-online.target
+Requires=dev-rtlsdrv4.device
+
+[Service]
+Type=simple
+Restart=no
+WorkingDirectory=/var/run
+EnvironmentFile=/etc/default/rtlsdr-wsprd.env
+ExecStart=/usr/local/bin/rtlsdr_wsprd $ARGS
+
+[Install]
+WantedBy=multi-user.target
+Alias=rtlsdr-wsprd.service

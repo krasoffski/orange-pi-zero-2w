@@ -1,0 +1,3 @@
+# RTL-SDR v4 dongle (rtl-sdr.com)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", ENV{ID_SOFTWARE_RADIO}="1", ENV{SYSTEMD_WANTS}="rtlsdr-wsprd.service", MODE="0660", GROUP="plugdev", TAG+="systemd", SYMLINK+="rtlsdrv4"
+
